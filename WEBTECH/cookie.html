@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cookie</title>
+</head>
+<body>
+    <table border="1">
+<tr>
+    <td>Name</td>
+    <td><input type="text" id="textname" /></td>
+</tr>
+<tr>
+    <td>Email</td>
+    <td><input type="text" id="textemail" /></td>
+</tr>
+<td>Gender</td>
+<td><input type="text" id="textgender" /></td>
+</tr>
+<tr>
+    <td colspan="2">
+    <input type="button" value="Set Cookie" onclick="setCookie()" /> 
+<input type="button" value="Get Cookie" onclick="getCookie()" />
+<input type="button" value="Clear" onclick="clearTextBoxes()" />
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+function setCookie()
+{
+    var object1 ={};
+    object1.name=document.getElementById("textname").value;
+    object1.class=document.getElementById("textname").value;
+    object1.subject=document.getElementById("textgender").value;
+    var jsonString=JSON.stringify(object1);
+    document.cookie = jsonString;
+}
+
+function getCookie()
+{
+    if(document.cookie.length !=0)
+    {
+        var obj=JSON.parse(document.cookie);
+        alert("FullName="+obj.name+" "+"Email="+obj.class+" "+"Gender="+obj.subject);
+    }
+    else
+    {
+        alert("Cookie not available");
+    }
+}
+
+function clearTextBoxes()
+{
+    document.getElementById("textname").value="";
+    document.getElementById("textemail").value="";
+    document.getElementById("textgender").value="";
+}
+
+</script>
+
+
+
+    
+</body>
+</html>
